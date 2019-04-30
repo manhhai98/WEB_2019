@@ -21,7 +21,7 @@
 				<form action="http://127.0.0.1:81/hanu-web-2019/src/backend/login.php" style="margin: 70px 45px 70px 45px;", method="post">
 					<div class="form-group">
 						<label for="email" class="text-warning text-fancy-sm">Email address:</label>
-						<input name= "username" type="text" class="form-control" placeholder="Your Email" id="mail" name="email">
+						<input name= "email" type="text" class="form-control" placeholder="Your Email" id="mail" name="email">
 					</div>
 					<div class="form-group">
 						<label for="pwd" class="text-warning text-fancy-sm">Password:</label>

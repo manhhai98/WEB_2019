@@ -1,20 +1,14 @@
-<?php 
-include 'account.php';
-// include 'login.php';
+<?php
+include_once 'account.php';
+// include_once 'login.php';
+include_once 'functionHelper.php';
 
-//connection variables
-$SERVER = "localhost";
-$DB_USER = "root";
-$DB_PASS = "";
-$DB_NAME = "restaurant";
-
-$conn = mysqli_connect($SERVER, $DB_USER, $DB_PASS, $DB_NAME);
-
-$message = null;
-//logger
-function consoleLog($message){
-	 echo "<script>console.log(".json_encode($message).")</script>";
-}
+global $conn;
+$email = $_POST["email"];
+$username = $_POST["username"];
+$paymentMethod = $_POST["paymentMethod"];
+$bankNumber = $_POST["bankNumber"];
+$password = $_POST["password"];
 
 //connection check
 if (mysqli_connect_errno()) {
@@ -26,31 +20,37 @@ if (mysqli_connect_errno()) {
 }
 
 //addAccount
- function addAccount($username, $password, $name, $email, $paymentMethod, $bankNum) {
-	$account = new Account($username, $password, $name, $email, $paymentMethod, $bankNum);
-	
+function addAccount($username, $password, $email, $paymentMethod, $bankNumber) {
+	$account = new Account($username, $password, $email, $paymentMethod, $bankNumber);
+
 	$username = $account->username;
 	$password = $account->password;
 	$encryptedPass = encrytPassword($password);
-	$name = $account->name;
-	$email = $account->email;
-	$paymentMethod = $account->paymentMethod;
-	$bankNum = $account->bankNum;
 
-	$sql = "INSERT INTO account(username, password, name, email, payment_method, bank_number) VALUES ('$username',$encryptedPass, '$name', '$email', '$paymentMethod', '$bankNum')";
-	
-	global $conn;
+	$email = $account->email;
+	if (checkExistEmail($email)) {
+		echo "email existed!";
+		return false;
+	} else {
+		$paymentMethod = $account->paymentMethod;
+		$bankNumber = $account->bankNumber;
+
+		$sql = "INSERT INTO account(username, password, email, payment_method, bank_number) VALUES ('$username', '$encryptedPass', '$email', '$paymentMethod', '$bankNumber')";
+
+		global $conn;
 		if ((mysqli_query($GLOBALS['conn'], $sql) === true)) {
 			consoleLog("inserted new account into db");
-		return true;	
+			return true;
 		} else {
-			consoleLog("tasks failed sucessfully hehe");
+			echo ("Error description: " . mysqli_error($conn));
 			return false;
 		}
 	}
+}
 
 //todo: get this from front end and encrypt xD
-addAccount("username", "password", "dumasdfasdfb", "dumb", "dumb", "dumb");
+
+addAccount($username, $password, $email, $paymentMethod, $bankNumber);
 //todo: check from db if user exists
 
- ?>
+?>
