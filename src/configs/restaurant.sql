@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2019 at 10:02 AM
+-- Generation Time: Apr 30, 2019 at 05:22 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -30,7 +30,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `account` (
   `account_id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
+  `username` varchar(45) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `email` varchar(45) DEFAULT NULL,
   `payment_method` varchar(45) DEFAULT NULL,
   `bank_number` varchar(45) DEFAULT NULL
@@ -40,9 +41,14 @@ CREATE TABLE `account` (
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`account_id`, `name`, `email`, `payment_method`, `bank_number`) VALUES
-(1, 'huy', 'huytest@g.com', 'Bank Transfer', '111111111'),
-(2, 'huy1', 'huy1test@g.com', 'Bank Transfer', '1211123123');
+INSERT INTO `account` (`account_id`, `username`, `password`, `email`, `payment_method`, `bank_number`) VALUES
+(1, '', '', 'huytest@g.com', 'Bank Transfer', '111111111'),
+(2, '', '', 'huy1test@g.com', 'Bank Transfer', '1211123123'),
+(14, 'username', '', 'mail@a.com', 'payment method', 'bank number'),
+(25, '', '$2a$15$Ku2hb./9aA71tPo/E015h.DTpXRZbR9f13kep7jRAq809vJLkVnVq', 'a@g.com', '', ''),
+(26, '', '$2a$15$Ku2hb./9aA71tPo/E015h.7N8DRLgTJkMGBq584YkWDZUMWuTDqNq', 'ss', '', ''),
+(27, '', '$2a$15$Ku2hb./9aA71tPo/E015h.DTpXRZbR9f13kep7jRAq809vJLkVnVq', 's', '', ''),
+(28, 'q', '$2a$15$Ku2hb./9aA71tPo/E015h.3d59v4ajU8gTEu7OYkivbLbl52kiOYm', 'q', 'bank', 'q');
 
 -- --------------------------------------------------------
 
@@ -167,7 +173,7 @@ ALTER TABLE `reservation`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `drink`
