@@ -71,7 +71,7 @@ include './menu_action.php';
 					$name = $item["dish_name"];
 					$img_link = $item["url"];
 					$desc = substr($item["dish_description"], 0, $max_desc_len);
-					?>
+			?>
 					<a href="#">
 						<div id="main-dish" class="food-item">
 							<img src=<?php echo "../../assets/img/$img_link" ?> style="width: 250px; height: 150px;">

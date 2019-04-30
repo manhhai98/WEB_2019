@@ -2,12 +2,12 @@
 $result_array = [];
 if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['search_btn'])) {
 	$input_str = $_POST['search'];
-	$query = "SELECT * FROM dish LEFT JOIN image ON dish.image_id = image.image_id WHERE dish.dish_name LIKE '%$input_str%'";
+	$query = "SELECT * FROM `post` LEFT JOIN image ON post.image_id = image.image_id LEFT JOIN dish ON post.dish_id = dish.dish_id WHERE post.content LIKE '%$input_str%'";
 	$result = mysqli_query($conn, $query);
 	$result_array = getResult($result);
 } else {
-	// all things in menu
-	$query = "SELECT * FROM dish LEFT JOIN image ON dish.image_id = image.image_id ";
+	// all posts
+	$query = "SELECT * FROM `post` LEFT JOIN image ON post.image_id = image.image_id LEFT JOIN dish ON post.dish_id = dish.dish_id";
 	$result = mysqli_query($conn, $query);
 	$result_array = getResult($result);
 }

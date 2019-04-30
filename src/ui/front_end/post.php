@@ -1,3 +1,8 @@
+<?php
+include '../../configs/connect_db.php';
+include './post_action.php';
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -27,7 +32,7 @@
 	</header>
 
 	<div id="img">
-		<img src="img/images (1).jpg" alt="food" style="width: 100%; height: 500px; margin-top: 40px;">
+		<img src="../../assets/img/images.jpg" alt="food" style="width: 100%; height: 500px; margin-top: 40px;">
 		<div class="center" style="font-size: 30px; font-family: none;">THE BEST IN TOWN</div>
 
 		<div class="center" style="margin-top: 80px; font-size: 40px;">
@@ -43,9 +48,9 @@
 					</a></li>
 				<li style="float: right;">
 					<div class="search-container">
-						<form action="#">
-							<input type="text" placeholder="Search.." name="search">
-							<button type="submit"><i class="fa fa-search" style="color: white;"></i></button>
+						<form action="post.php" method="post">
+							<input name="search" type="text" placeholder="Search.." >
+							<button name="search_btn" type="submit"><i class="fa fa-search" style="color: white;"></i></button>
 						</form>
 					</div>
 				</li>
@@ -53,38 +58,32 @@
 		</div>
 
 		<div class="post" style="background-color: #ffffff;">
+			<?php
+				if (count($result_array) == 0) {
+					echo "<h1 style='color:#000000'> No Posts available </h1>";
+				} else {
+					foreach ($result_array as $item) {
+						$author = $item["author"];
+						$content = $item["content"];
+						$date = $item["update_date"];
+						$title = $item["dish_name"];
+						$img_link = $item["url"]
+			?>
+			<!-- Layout for each posts -->
 			<div class="item">
-				<a href="#"><img src="../../assets/img/katie-smith-104748-unsplash.jpg"></a>
+				<a href="#"><img src=<?php echo "../../assets/img/$img_link" ?>></a>
 				<a href="#">
-					<h1>Title</h1>
+					<h1><?php echo $title ?></h1>
 				</a>
-				<i>20/09/2019</i>
-				<i>by admin</i>
+				<i><?php echo $date ?></i>
+				<i>by <?php echo $author ?></i>
 				<br>
-				<p>Something Something Something Something Something Something Something.</p>
+				<p><?php echo $content ?></p>
 			</div>
-
-			<div class="item">
-				<a href="#"><img src="../../assets/img/katie-smith-104748-unsplash.jpg"></a>
-				<a href="#">
-					<h1>Title</h1>
-				</a>
-				<i>20/09/2019</i>
-				<i>by admin</i>
-				<br>
-				<p>Something Something Something Something Something Something Something.</p>
-			</div>
-
-			<div class="item">
-				<a href="#"><img src="../../assets/img/katie-smith-104748-unsplash.jpg"></a>
-				<a href="#">
-					<h1>Title</h1>
-				</a>
-				<i>20/09/2019</i>
-				<i>by admin</i>
-				<br>
-				<p>Something Something Something Something Something Something Something.</p>
-			</div>
+			<?php
+					}
+				}
+			?>
 		</div>
 	</div>
 
