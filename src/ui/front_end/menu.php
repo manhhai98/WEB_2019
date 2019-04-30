@@ -9,16 +9,16 @@
 <body>
 	<header>
 		<div id="container">
-			<a href="index.html" class="logo"><img src="../../assets/img/Shulas-Restaurants-Hi-Res-Transparent-Background.png" alt="logo"></a>
+			<a href="index.php" class="logo"><img src="../../assets/img/Shulas-Restaurants-Hi-Res-Transparent-Background.png" alt="logo"></a>
 
 			<div class="menu">
 				<ul>
-					<li><a href="index.html" class="item">Home</a></li>
-					<li><a href="menu.html" class="item">Menu</a></li>
-					<li><a href="post.html" class="item">Post</a></li>
-					<li><a href="order.html" class="item">Order</a></li>
-					<li style="float: right;"><a href="../login/register.html" class="btn"><button type="sign-in-button">Sign Up</button></a></li>
-					<li style="float: right;"><a href="../login/login.html" class="btn"><button type="sign-up-button">Sign In</button></a></li>
+					<li><a href="index.php" class="item">Home</a></li>
+					<li><a href="menu.php" class="item">Menu</a></li>
+					<li><a href="post.php" class="item">Post</a></li>
+					<li><a href="order.php" class="item">Order</a></li>
+					<li style="float: right;"><a href="../login/register.php" class="btn"><button type="sign-in-button">Sign Up</button></a></li>
+					<li style="float: right;"><a href="../login/login.php" class="btn"><button type="sign-up-button">Sign In</button></a></li>
 				</ul>
 			</div>
 		</div>
@@ -105,7 +105,7 @@
 
 	<footer>
 		<div id="container">
-			<a href="index.html" class="logo"><img src="../../assets/img/Shulas-Restaurants-Hi-Res-Transparent-Background.png" alt="logo"></a>
+			<a href="index.php" class="logo"><img src="../../assets/img/Shulas-Restaurants-Hi-Res-Transparent-Background.png" alt="logo"></a>
 
 			<div class="icon" style="text-align: center;">
 				<a href="#" class="fa fa-facebook"></a>
