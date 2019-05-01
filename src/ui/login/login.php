@@ -18,14 +18,14 @@
 			<div class="col-sm-2"></div>
 			<!-- Login form -->
 			<div class="col-sm-3 card grow" style="background-color: #282828 ; opacity: 0.8; border-radius: 20px">
-				<form action="" style="margin: 70px 45px 70px 45px;">
+				<form action="../../backend/login.php" style="margin: 70px 45px 70px 45px;">
 					<div class="form-group">
 						<label for="email" class="text-warning text-fancy-sm">Email address:</label>
-						<input type="text" class="form-control" placeholder="Your Email" id="mail" name="email">
+						<input name= "email" type="text" class="form-control" placeholder="Your Email" id="mail">
 					</div>
 					<div class="form-group">
 						<label for="pwd" class="text-warning text-fancy-sm">Password:</label>
-						<input type="password" placeholder="Your Password" class="form-control" id="pwd">
+						<input name = "password" type="password" placeholder="Your Password" class="form-control" id="pwd">
 					</div>
 					<button type="submit" class="btn btn-outline-warning btn-block"
 						style="margin-top: 30%">Submit</button>
